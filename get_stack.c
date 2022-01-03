@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:52 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 11:44:42 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 15:52:08 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ static void get_len(int ac, char **av, t_data *data)
     }
     data->asize = k;
 }
+
 
 static void	data_init(t_data *data)
 {

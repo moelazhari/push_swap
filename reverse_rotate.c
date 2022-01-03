@@ -20,6 +20,7 @@ void rra(t_data *data)
         data->stacka[i] = stack[i - 1];
         i++;
     }
+    write (1, "rra\n", 4);
     free(stack);
 }
 
@@ -43,6 +44,7 @@ void rrb(t_data *data)
         data->stackb[i] = stack[i - 1];
         i++;
     }
+    write (1, "rrb\n", 4);
     free(stack);
 }
 
@@ -50,4 +52,5 @@ void rrr(t_data *data)
 {
     rra(data);
     rrb(data);
+    write (1, "rrr\n", 4);
 }

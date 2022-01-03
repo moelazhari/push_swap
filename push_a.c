@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:22 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 13:05:23 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 16:17:51 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ void	pa(t_data *data)
 	{
 		add_in_stacka(data);
 		remove_from_stackb(data);
+		write (1, "pa\n", 3);
 	}
 }

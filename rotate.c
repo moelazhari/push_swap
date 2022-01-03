@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:56:01 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 14:03:05 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 16:19:31 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void ra(t_data *data)
         data->stacka[i] = stack[i + 1];
         i++;
     }
+    write (1, "ra\n", 3);
     free(stack);
 }
 
@@ -53,6 +54,7 @@ void rb(t_data *data)
         data->stackb[i] = stack[i + 1];
         i++;
     }
+    write (1, "rb\n", 3);
     free(stack);
 }
 
@@ -60,4 +62,5 @@ void rr(t_data *data)
 {
     ra(data);
     rb(data);
+    write (1, "rr\n", 3);
 }
