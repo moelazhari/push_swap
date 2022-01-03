@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 17:20:53 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 21:33:50 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_data
 	int	*stacka;
 	int	bsize;
 	int	*stackb;
+	int *index;
 }	          t_data;
 
 void	get_stack(int ac, char **av, t_data *data);

@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 17:24:55 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 22:04:39 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int main(int ac, char *av[])
     if (ac < 2)
         return (0);
 
+    
     get_stack(ac, av, &data);
     if (check_is_sort(&data))
     {
@@ -52,7 +53,7 @@ int main(int ac, char *av[])
     data.stackb[1] = 6;
     data.stackb[2] = 90;
     data.stackb[3] = 8;
-    
+    */
    
     int i = 0;
     while (i < data.asize)
@@ -60,7 +61,7 @@ int main(int ac, char *av[])
         printf ("%d\n", data.stacka[i]);
         i++;
     }
-    printf ("\n");
+    /*printf ("\n");
     i = 0;
     while (i < data.bsize)
     {

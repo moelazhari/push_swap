@@ -6,31 +6,31 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 17:27:08 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/03 22:01:35 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int get_max(int *arr, int len)
+static int	get_max(int *arr, int len)
 {
-    int i;
-    int max;
+	int	i;
+	int	max;
 
-    max = 0;
-    i = 0;
-    while (i < len)
-    {
-        if (arr[i] > max)
-            max = arr[i];
-        i++;
-    }
-    return (max);
+	i = 0;
+	max = 0;
+	while (i < len)
+	{
+		if (arr[i] > max)
+			max = arr[i];
+		i++;
+	}
+	return (max);
 }
 
 void	sort_three(t_data *data)
 {
-    if (data->stacka[2] == get_max(data->stacka, 3))
+    if (data->stacka[2] == get_max(data->stacka, data->asize))
         sa(data);
     else if (data->stacka[0] == get_max(data->stacka, data->asize))
     {
@@ -56,19 +56,27 @@ void	sort_three(t_data *data)
 
 void	sort_five(t_data *data)
 {
-    pb(data);
-    pb(data);
-    sort_three(data);
-    pa(data);
-    if (data->stacka[0] > data->stacka[1])
-        ra(data);
-    int i = 0;
-    while (i < data->asize)
-    {
-        printf ("%d\n", data->stacka[i]);
+	int	max;
+	int	mid;
+	int	i;
+    
+	i = 0;
+	max = data->asize;
+	mid = get_max(data->stacka, data->asize) / 2;
+	if  (get_max(data->stacka, data->asize) % 2)
+		mid = get_max(data->stacka, data->asize) / 2 + 1;
+	while (i < max && max > 3)
+	{
+		if (data->stacka[0] < mid)
+			pb(data);
+		else
+			ra(data);
         i++;
-    }
-    pa(data);
-    if (data->stacka[0] > data->stacka[1])
-        ra(data);
+	}
+	sort_three(data);
+	if (data->bsize == 2)
+		if (data->stackb[0] > data->stackb[1])
+			sb(data);
+	while (data->stackb)
+		pa(data);
 }
