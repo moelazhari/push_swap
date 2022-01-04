@@ -6,17 +6,17 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:42:06 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 10:42:09 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/04 17:56:37 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long ft_atoll(const char *str)
+long	ft_atoll(const char *str)
 {
-	long rus;
-	int	vul;
-	int	i;
+	long	rus;
+	int		vul;
+	int		i;
 
 	i = 0;
 	vul = 1;

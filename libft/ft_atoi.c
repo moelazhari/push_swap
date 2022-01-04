@@ -6,15 +6,15 @@
 /*   By: mazhari <marvin@42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:23:30 by mazhari           #+#    #+#             */
-/*   Updated: 2021/11/07 13:04:15 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/04 19:08:28 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
-	int rus;
+	int	rus;
 	int	vul;
 	int	i;
 
