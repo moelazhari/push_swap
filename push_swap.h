@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 21:33:50 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/04 13:52:19 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,13 @@
 
 typedef struct s_data
 {
-	int	asize;
+	int	lena;
 	int	*stacka;
-	int	bsize;
+	int	lenb;
 	int	*stackb;
-	int *index;
 }	          t_data;
 
-void	get_stack(int ac, char **av, t_data *data);
+void	get_stack(char **split,t_data *data);
 void	exit_error (t_data *data);
 long	ft_atoll(const char *str);
 void	sa(t_data *data);
@@ -40,8 +39,9 @@ void	rr(t_data *data);
 void	rra(t_data *data);
 void	rrb(t_data *data);
 void	rrr(t_data *data);
-void	sort_three(t_data *data);
-void	sort_five(t_data *data);
+void	sort_min(t_data *data);
+void	sort_mide(t_data *data);
+void	sort_max(t_data *data);
 
 #endif
 

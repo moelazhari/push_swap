@@ -6,85 +6,39 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:52 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 21:09:09 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/04 13:58:01 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-static void  check_digit(int ac, char **av, t_data *data)
+static void data_init(char **split, t_data *data)
 {
     int i;
-    int j;
 
-    i = 1;
-    while (i < ac)
-    {
-        j = 0;
-        while (av[i][j])
-        {
-            if (!ft_isdigit(av[i][j]) && av[i][j] != ' ' && av[i][j] != '-')
-                exit_error(data);
-            j++;
-        }
+    i = 0;
+    while (split[i])
         i++;
-    }
-}
-
-static void get_len(int ac, char **av, t_data *data)
-{
-    char **split;
-    int i;
-    int j;
-    int k;
-
-    i = 1;
-    k = 0;
-    while (i < ac)
-    {
-        j = 0;
-        split = ft_split(av[i], ' ');
-        while (split[j])
-        {
-                j++;
-                k++;
-        }
-        i++;
-    }
-    data->asize = k;
-}
-
-static void data_init(t_data *data)
-{
-	data->stacka = malloc(data->asize * sizeof(int));
-	data->bsize = 0;
+    data->lena = i;
+	data->stacka = malloc(data->lena * sizeof(int));
+	data->lenb = 0;
 	data->stackb = NULL;
 }
 
-static void fill_stack(int ac, char  **av, t_data *data)
+static void fill_stack(char **split, t_data *data)
 {
-    char **split;
     int i;
-    int j;
-    int k;
     long n;
     
     i = 1;
-    k = 0;
-    while (i < ac)
+    n = 0;
+    while (i < data->lena)
     {
-        j = 0;
-        split = ft_split(av[i], ' ');
-        while (split[j])
-        {
-                n = atoll(split[j]);
-                if (n > 2147483647 || n < -2147483648)
-			        exit_error(data);
-                data->stacka[k] = ft_atoi(split[j]);
-                j++;
-                k++;
-        }
+        n = atoll(split[i]);
+        if (n > 2147483647 || n < -2147483648)
+			    exit_error(data);
+        data->stacka[i] = ft_atoi(split[i]);
         i++;
     }
 }
@@ -95,10 +49,10 @@ static void check_doubel(t_data *data)
 	int	j;
 
 	i = 0;
-	while (i < data->asize)
+	while (i < data->lena)
 	{
 		j = i + 1;
-		while (j < data->asize)
+		while (j < data->lena)
 		{
 			if (data->stacka[j] == data->stacka[i])
 				exit_error(data);
@@ -108,11 +62,9 @@ static void check_doubel(t_data *data)
 	}
 }
 
-void get_stack(int ac, char **av, t_data *data)
+void get_stack(char **split, t_data *data)
 {   
-    check_digit(ac, av, data);
-    get_len(ac, av, data);
-    data_init(data);
-    fill_stack(ac, av, data);
+    data_init(split, data);
+    fill_stack(split, data);
     check_doubel(data);
 }

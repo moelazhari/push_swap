@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/03 22:01:35 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/04 11:30:12 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,14 @@ static int	get_max(int *arr, int len)
 	return (max);
 }
 
-void	sort_three(t_data *data)
+void	sort_min(t_data *data)
 {
-    if (data->stacka[2] == get_max(data->stacka, data->asize))
+	int biggest;
+
+	biggest = get_max(data->stacka, data->asize);
+    if (data->stacka[2] == biggest)
         sa(data);
-    else if (data->stacka[0] == get_max(data->stacka, data->asize))
+    else if (data->stacka[0] == biggest)
     {
         if (data->stacka[1] < data->stacka[2])
             ra(data);
@@ -54,18 +57,20 @@ void	sort_three(t_data *data)
     }
 }
 
-void	sort_five(t_data *data)
+void	sort_mide(t_data *data)
 {
-	int	max;
-	int	mid;
 	int	i;
-    
+	int biggest;
+	int	len;
+	int	mid;
+
 	i = 0;
-	max = data->asize;
-	mid = get_max(data->stacka, data->asize) / 2;
-	if  (get_max(data->stacka, data->asize) % 2)
-		mid = get_max(data->stacka, data->asize) / 2 + 1;
-	while (i < max && max > 3)
+	biggest = get_max(data->stacka, data->asize);
+	len = data->asize;
+	mid = biggest / 2;
+	if  (biggest % 2)
+		mid = biggest / 2 + 1;
+	while (i < len)
 	{
 		if (data->stacka[0] < mid)
 			pb(data);
@@ -73,10 +78,39 @@ void	sort_five(t_data *data)
 			ra(data);
         i++;
 	}
-	sort_three(data);
+	sort_min(data);
 	if (data->bsize == 2)
-		if (data->stackb[0] > data->stackb[1])
+		if (data->stackb[0] < data->stackb[1])
 			sb(data);
 	while (data->stackb)
 		pa(data);
+}
+
+void sort_max(t_data *data)
+{
+	int	i;
+	int	j;
+	int biggest;
+	int	shift;
+	int	len;
+
+	i = -1;
+	biggest = get_max(data->stacka, data->asize);
+	shift = 0;
+	len = data->asize;
+	while ((biggest >> shift) != 0)
+		shift++;
+	while (++i < shift)
+	{
+		j = -1;
+		while (++j < len)
+		{
+			if (((data->stacka[0] >> i) & 1) == 1)
+				ra(data);
+			else
+				pb(data);
+		}
+		while (data->stackb)
+			pa(data);
+	}
 }
