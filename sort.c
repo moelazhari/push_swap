@@ -6,27 +6,11 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/04 19:05:55 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/06 20:33:34 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	get_max(int *arr, int len)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = 0;
-	while (i < len)
-	{
-		if (arr[i] > max)
-			max = arr[i];
-		i++;
-	}
-	return (max);
-}
 
 static void	sort_min(t_data *data)
 {
@@ -41,8 +25,8 @@ static void	sort_min(t_data *data)
 			ra(data);
 		else
 		{
+			ra(data);
 			sa(data);
-			rra(data);
 		}
 	}
 	else
@@ -60,32 +44,29 @@ static void	sort_min(t_data *data)
 static void	sort_mide(t_data *data)
 {
 	int	i;
-	int	biggest;
-	int	len;
-	int	mid;
+	int	small;
 
 	i = -1;
-	biggest = get_max(data->stacka, data->lena);
-	len = data->lena;
-	mid = biggest / 2;
-	if (biggest % 2)
-		mid = biggest / 2 + 1;
-	while (++i < len && data->lena > 3)
+	small = get_small(data->stacka, data->lena);
+	while (++i < data->lena && data->lena > 3)
 	{
-		if (data->stacka[0] < mid)
+		if (data->stacka[0] == small)
+		{
 			pb(data);
+			i = 0;
+			small = get_small(data->stacka, data->lena);
+		}
+		else if (data->stacka[data->lena - 1] == small)
+			rra(data);
 		else
 			ra(data);
 	}
 	if (!check_is_sort(data))
 		sort_min(data);
-	if (data->lenb == 2)
-		if (data->stackb[0] < data->stackb[1])
-			sb(data);
 	while (data->stackb)
 		pa(data);
 }
-
+/*
 static void	sort_max(t_data *data)
 {
 	int	i;
@@ -114,7 +95,7 @@ static void	sort_max(t_data *data)
 			pa(data);
 	}
 }
-
+*/
 void	sort(t_data *data)
 {
 	if (data->lena == 2)
@@ -123,6 +104,6 @@ void	sort(t_data *data)
 		sort_min(data);
 	else if (data->lena <= 5)
 		sort_mide(data);
-	else
-		sort_max(data);
+	//else
+	//	sort_max(data);
 }

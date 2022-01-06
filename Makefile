@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/01/04 19:54:37 by mazhari          ###   ########.fr        #
+#    Updated: 2022/01/06 10:45:20 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,10 +24,11 @@ CFLAGS = -Wall -Werror -Wextra
 SRCS = main.c \
 		get_stack.c \
 		ft_atoll.c \
+		exit_error.c \
+		sort_utils.c \
 		swap.c \
 		push_a.c \
 		push_b.c \
-		exit_error.c \
 		rotate.c \
 		reverse_rotate.c \
 		sort.c \

@@ -6,40 +6,39 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:52 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/04 20:24:39 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/05 17:13:42 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
 
-static void	data_init(char **split, t_data *data)
+static void	data_init(int ac, t_data *data)
 {
 	int	i;
 
 	i = 0;
-	while (split[i])
-		i++;
-	data->lena = i;
+	data->lena = ac - 1;
 	data->stacka = malloc(data->lena * sizeof(int));
+	if(!data->stacka)
+		exit_error(data);
 	data->lenb = 0;
 	data->stackb = NULL;
 }
 
-static void	fill_stack(char **split, t_data *data)
+static void	fill_stack(char **av, t_data *data)
 {
 	int		i;
 	long	n;
-
-	i = 0;
+	
+	i = -1;
 	n = 0;
-	while (i < data->lena)
+	while (++i < data->lena)
 	{
-		n = atoll(split[i]);
+		n = atoll(av[i + 1]);
 		if (n > 2147483647 || n < -2147483648)
 			exit_error(data);
-		data->stacka[i] = ft_atoi(split[i]);
-		i++;
+		data->stacka[i] = ft_atoi(av[i + 1]);
 	}
 }
 
@@ -54,7 +53,7 @@ static void	check_doubel(t_data *data)
 		j = i + 1;
 		while (j < data->lena)
 		{
-			if (data->stacka[j] == data->stacka[i])
+			if (data->stacka[i] == data->stacka[j])
 				exit_error(data);
 			j++;
 		}
@@ -62,9 +61,9 @@ static void	check_doubel(t_data *data)
 	}
 }
 
-void	get_stack(char **split, t_data *data)
+void	get_stack(int ac, char **av, t_data *data)
 {
-	data_init(split, data);
-	fill_stack(split, data);
+	data_init(ac, data);
+	fill_stack(av, data);
 	check_doubel(data);
 }
