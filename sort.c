@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/06 20:33:34 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/01/07 18:26:39 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,21 @@ static void	sort_min(t_data *data)
 {
 	int	biggest;
 
-	biggest = get_max(data->stacka, data->lena);
-	if (data->stacka[2] == biggest)
-		sa(data);
-	else if (data->stacka[0] == biggest)
+	if (!check_is_sort(data))
 	{
-		if (data->stacka[1] < data->stacka[2])
+		biggest = get_max(data->stacka, data->lena);
+		if (data->stacka[2] == biggest)
+			sa(data);
+		else if (data->stacka[0] == biggest && data->stacka[1] < data->stacka[2])
 			ra(data);
-		else
+		else if (data->stacka[0] == biggest && data->stacka[1] > data->stacka[2])
 		{
 			ra(data);
 			sa(data);
 		}
-	}
-	else
-	{
-		if (data->stacka[0] > data->stacka[2])
+		else if (data->stacka[1] == biggest && data->stacka[0] > data->stacka[2])
 			rra(data);
-		else
+		else if (data->stacka[1] == biggest && data->stacka[0] < data->stacka[2])
 		{
 			sa(data);
 			ra(data);
@@ -45,27 +42,28 @@ static void	sort_mide(t_data *data)
 {
 	int	i;
 	int	small;
+	int	index;
 
 	i = -1;
-	small = get_small(data->stacka, data->lena);
+	small =	get_small(data->stacka, data->lena, &index);
 	while (++i < data->lena && data->lena > 3)
 	{
 		if (data->stacka[0] == small)
 		{
 			pb(data);
+			small = get_small(data->stacka, data->lena, &index);
 			i = 0;
-			small = get_small(data->stacka, data->lena);
 		}
-		else if (data->stacka[data->lena - 1] == small)
+		else if (index > 2)
 			rra(data);
 		else
 			ra(data);
 	}
-	if (!check_is_sort(data))
-		sort_min(data);
+	sort_min(data);
 	while (data->stackb)
 		pa(data);
 }
+
 /*
 static void	sort_max(t_data *data)
 {
@@ -102,7 +100,7 @@ void	sort(t_data *data)
 		sa(data);
 	else if (data->lena == 3)
 		sort_min(data);
-	else if (data->lena <= 5)
+	else
 		sort_mide(data);
 	//else
 	//	sort_max(data);

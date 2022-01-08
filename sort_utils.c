@@ -16,18 +16,19 @@ int	get_max(int *arr, int len)
 	return (max);
 }
 
-int get_small(int *arr,int len)
+int	get_small(int *arr,int len, int *index)
 {
-	int	i;
+	int i;
 	int	small;
 
 	i = 0;
-	small = arr[i];
-	
-	while (i++ < len - 1)
+	*index = 0;
+	small = arr[0];
+	while (++i < len - 1)
 	{
 		if (arr[i] < small)
 			small = arr[i];
+		(*index)++;
 	}
 	return (small);
 }
