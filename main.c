@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/06 19:39:38 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/02 13:30:14 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	check_digit(int ac, char **str, t_data *data)
+void	check_digit(int ac, char **str, t_data *data)
 {
 	int	i;
 	int j;
@@ -77,8 +77,8 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	if (ac < 2)
-		return (0);
+	if (ac > 2)
+	{
 	check_digit(ac, av, &data);
 	get_stack(ac, av, &data);
 	if (check_is_sort(&data) || data.lena == 1)
@@ -92,5 +92,6 @@ int	main(int ac, char **av)
 		free(data.stacka);
 	if (data.stackb)
 		free(data.stackb);
+	}
 	return (0);
 }

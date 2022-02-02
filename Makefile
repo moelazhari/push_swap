@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/01/06 10:45:20 by mazhari          ###   ########.fr        #
+#    Updated: 2022/02/02 14:01:34 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ all: $(NAME)
 	
 $(NAME): $(OBJS) $(LIBFT_LIB)  $(HEADER) 
 	$(CC) $(CFLAGS) $(LIBFT_LIB) $(OBJS) -o $(NAME)
-	
 
 $(LIBFT_LIB):
 	$(MAKE) -C $(LIBFT_DIR)
