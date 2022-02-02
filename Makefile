@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/02/02 14:01:34 by mazhari          ###   ########.fr        #
+#    Updated: 2022/02/02 19:08:54 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS = main.c \
 		rotate.c \
 		reverse_rotate.c \
 		sort.c \
+		big_sort.c \
 
 OBJS = $(SRCS:.c=.o)
 

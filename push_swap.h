@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/02 13:30:40 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/02 19:04:19 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_stack(int ac, char **av, t_data *data);
 void	exit_error(t_data *data);
 long	ft_atoll(const char *str);
 int		check_is_sort(t_data *data);
-int		get_max(int *arr, int len);
+int		get_big(int *arr, int len);
 int		get_small(int *arr,int len, int *index);
 void	sort(t_data *data);
 void	big_sort(t_data *data);

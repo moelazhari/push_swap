@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/02 13:13:27 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/02 19:45:53 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	min_sort(t_data *data)
 
 	if (!check_is_sort(data))
 	{
-		biggest = get_max(data->stacka, data->lena);
+		biggest = get_big(data->stacka, data->lena);
 		if (data->stacka[2] == biggest)
 			sa(data);
 		else if (data->stacka[0] == biggest && data->stacka[1] < data->stacka[2])
@@ -99,7 +99,9 @@ void	sort(t_data *data)
 	if (data->lena == 2)
 		sa(data);
 	else if (data->lena == 3)
+	{
 		min_sort(data);
+	}
 	else if (data->lena <= 5)
 		mide_sort(data);
 	//else

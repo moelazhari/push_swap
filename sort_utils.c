@@ -1,12 +1,12 @@
 #include "push_swap.h"
 
-int	get_max(int *arr, int len)
+int	get_big(int *arr, int len)
 {
 	int	i;
 	int	max;
 
 	i = 0;
-	max = 0;
+	max = arr[0];
 	while (i < len)
 	{
 		if (arr[i] > max)

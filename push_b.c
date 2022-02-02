@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:28 by mazhari           #+#    #+#             */
-/*   Updated: 2022/01/04 18:56:29 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/02 18:03:40 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ static void	add_in_stackb(t_data *data)
 {
 	int	*stack;
 	int	i;
-	int	j;
 
 	i = 0;
-	j = 0;
 	stack = malloc((data->lenb + 1) * sizeof(int));
 	if (!stack)
 		exit_error(data);
