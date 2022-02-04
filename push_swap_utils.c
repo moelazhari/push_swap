@@ -3,15 +3,14 @@
 int	check_is_sort(stack *a)
 {
 	int	i;
-	
-	i = 0;
-	while (i < a->top)
+
+	i = -1;
+	while (++i <= a->top)
 	{
-		if (a->tab[i] > a->tab[i + 1])
-			break ;
-		i++;
+		if (a->tab[i] < a->tab[i + 1])
+			return (0);
 	}
-	return (i == a->top);
+	return (1);
 }
 
 void	check_digit(int ac, char **str)

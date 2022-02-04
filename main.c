@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 15:59:45 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/04 16:16:36 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,12 @@ int	main(int ac, char **av)
 	{
 	check_digit(ac, av);
 	get_stack(ac, av, &a);
-	/*if (check_is_sort(&stacka) || stacka.len == 1)
+	if (check_is_sort(&a) || a.top == 0)
 	{
-		free(stacka.arr);
+		free(a.tab);
 		exit(0);
 	}
+	/*
 	//get_index(&data);
 	sort(&data);
 	if (data.stacka)
