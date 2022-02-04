@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 16:28:55 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/02 19:45:53 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/03 15:13:56 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	min_sort(t_data *data)
+void	min_sort(t_data *data)
 {
 	int	biggest;
 
@@ -96,7 +96,7 @@ static void	sort_max(t_data *data)
 */
 void	sort(t_data *data)
 {
-	if (data->lena == 2)
+	/*if (data->lena == 2)
 		sa(data);
 	else if (data->lena == 3)
 	{
@@ -104,6 +104,6 @@ void	sort(t_data *data)
 	}
 	else if (data->lena <= 5)
 		mide_sort(data);
-	//else
-	//	big_sort(data);
+	else*/
+		big_sort(data);
 }

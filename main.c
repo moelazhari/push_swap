@@ -6,31 +6,12 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/02 19:01:20 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/04 15:55:41 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_digit(int ac, char **str, t_data *data)
-{
-	int	i;
-	int j;
-
-	i = 0;
-	while (++i < ac)
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if (str[i][j] == '-')
-				j++;
-			if (!ft_isdigit(str[i][j]))
-				exit_error(data);
-			j++;	
-		}
-	}
-}
 /*
 static void	get_index(t_data *data)
 {
@@ -60,30 +41,19 @@ static void	get_index(t_data *data)
 	data->stacka = ptr;
 }
 */
-int	check_is_sort(t_data *data)
-{
-	int	i;
-
-	i = -1;
-	while (++i < data->lena - 1)
-	{
-		if (data->stacka[i] > data->stacka[i + 1])
-			return (0);
-	}
-	return (1);
-}
 
 int	main(int ac, char **av)
 {
-	t_data	data;
+	t_stack	a;
+	t_stack	b;
 
 	if (ac > 2)
 	{
-	check_digit(ac, av, &data);
-	get_stack(ac, av, &data);
-	if (check_is_sort(&data) || data.lena == 1)
+	check_digit(ac, av);
+	get_stack(ac, av, &a);
+	/*if (check_is_sort(&stacka) || stacka.len == 1)
 	{
-		free(data.stacka);
+		free(stacka.arr);
 		exit(0);
 	}
 	//get_index(&data);
@@ -92,6 +62,15 @@ int	main(int ac, char **av)
 		free(data.stacka);
 	if (data.stackb)
 		free(data.stackb);
+	*/
+	int	i;
+
+	i = 0;
+	while (i <= a.top)
+	{
+		printf("%d", a.tab[i]);
+		i++;
+	}
 	}
 	return (0);
 }

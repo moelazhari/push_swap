@@ -71,32 +71,78 @@ void	rrr(stack *a, stack *b)
 	rro(a);
 	rro(b);
 }
+
+int	check_order(stack a)
+{
+	int	i = 0;
+
+	while (i < a.top)
+	{
+		if (a.tab[i] > a.tab[i + 1])
+			break ;
+		i++;
+	}
+	return (i == a.top);
+}
 */
+
+int	find_max(t_data data)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = 0;
+	while (i < data.lenb)
+	{
+		if (data.stackb[i] > data.stackb[max])
+			max = i;
+		i++;
+	}
+	return (max);
+}
+
+void	sort_b(t_data *data)
+{
+	int max;
+
+	max = find_max(*data);
+	if (max > (data->lenb) / 2)
+	{
+		while (max++ < data->lenb)
+			rrb(data);
+	}
+	else 
+	{
+		while (max-- > 0)
+			rb(data);
+	}
+}
 
 void	big_sort(t_data *data)
 {
-	while (1)
+	while (data->lena > 3)
 	{
-		while (data->stacka[0] > data->stacka[data->lena - 1])
+		if (data->stacka[0] >= data->stacka[data->lena - 1])
 		{
-		    if (data->stacka[data->lena - 1] > data->stacka[data->lena - 2])
+			if (data->stacka[data->lena - 1] >= data->stacka[data->lena - 2])
 				ra(data);
 			else
 				rra(data);
 		}
 		if (data->stacka[0] > data->stacka[1])
 			sa(data);
-		if (check_is_sort(data))
-			break ;
-		pb(data);
-        if (data->stackb[0] < data->stackb[1])
-            sb(data);
+		pb(data); 
 	}
+	min_sort(data);
 	while (data->lenb > 0)
 	{
-		if (data->stackb[0] < data->stackb[data->lenb - 1])
+		sort_b(data);
+		/*if (data->stackb[0] < data->stackb[data->lenb - 1])
 			rrb(data);
-        pa(data);
+		if (data->stackb[0] > data->stackb[1])
+			sb(data);*/
+		pa(data);
 		if (data->stacka[0] > data->stacka[1])
 			sa(data);
 	}

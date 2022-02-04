@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/02/02 19:08:54 by mazhari          ###   ########.fr        #
+#    Updated: 2022/02/04 15:25:15 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,14 +19,14 @@ LIBFT_DIR = libft
 LIBFT_LIB = $(LIBFT_DIR)/libft.a
 
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra
 
 SRCS = main.c \
 		get_stack.c \
 		ft_atoll.c \
 		exit_error.c \
-		sort_utils.c \
-		swap.c \
+		push_swap_utils.c \
+		#swap.c \
 		push_a.c \
 		push_b.c \
 		rotate.c \
@@ -34,28 +34,44 @@ SRCS = main.c \
 		sort.c \
 		big_sort.c \
 
+SRCS_BONUS = bonus/checker.c \
+			bonus/push_swap_utils.c \
+			bonus/get_stack.c \
+			bonus/ft_atoll.c \
+			bonus/exit_error.c \
+			bonus/swap.c \
+			bonus/push_a.c \
+			bonus/push_b.c \
+			bonus/rotate.c \
+			bonus/reverse_rotate.c \
+			bonus/gnl/get_next_line.c \
+			bonus/gnl/get_next_line_utils.c
+		
 OBJS = $(SRCS:.c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -o $@ -c $<
-	
+
 $(NAME): $(OBJS) $(LIBFT_LIB)  $(HEADER) 
-	$(CC) $(CFLAGS) $(LIBFT_LIB) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(LIBFT_LIB) $(OBJS) -o $(NAME)
 
 $(LIBFT_LIB):
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR) 
 
-bonus: 
-	$(MAKE) -C  $(BONUS_DIR)
-	
+bonus: $(OBJS_BONUS) $(LIBFT_LIB) $(HEADER)
+	$(CC) $(FLAGS) $(LIBFT_LIB) $(OBJS_BONUS) -o checker
+
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(OBJS_BONUS)
 	$(MAKE) clean -C $(LIBFT_DIR)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) checker
 	$(RM) $(LIBFT_LIB)
 
 re: fclean all
