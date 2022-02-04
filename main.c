@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 15:55:41 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/04 15:59:45 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ static void	get_index(t_data *data)
 
 int	main(int ac, char **av)
 {
-	t_stack	a;
-	t_stack	b;
+	stack	a;
+	stack	b;
 
 	if (ac > 2)
 	{

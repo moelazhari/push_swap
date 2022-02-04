@@ -6,16 +6,16 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:41:59 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 15:24:04 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/04 16:02:12 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_error(t_stack *stack)
+void	exit_error(stack *a)
 {
-	if (stack->arr)
-		free(stack->arr);
+	if (a->tab)
+		free(a->tab);
 	write(2, "Error\n", 6);
 	exit(0);
 }

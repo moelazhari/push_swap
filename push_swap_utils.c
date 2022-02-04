@@ -1,17 +1,17 @@
 #include "push_swap.h"
 
-int	check_is_sort(t_stack *a)
+int	check_is_sort(stack *a)
 {
-	int	i 
+	int	i;
 	
 	i = 0;
-	while (i < a.top)
+	while (i < a->top)
 	{
-		if (a.tab[i] > a.tab[i + 1])
+		if (a->tab[i] > a->tab[i + 1])
 			break ;
 		i++;
 	}
-	return (i == a.top);
+	return (i == a->top);
 }
 
 void	check_digit(int ac, char **str)
