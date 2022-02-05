@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static void	check_doubel(stack *a)
+static void	check_doubel(stack *a, stack *b)
 {
 	int	i;
 	int	j;
@@ -24,14 +24,14 @@ static void	check_doubel(stack *a)
 		while (j < a->top)
 		{
 			if (a->tab[i] == a->tab[j])
-				exit_error(a);
+				exit_error(a, b);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	get_stack(int ac, char **av, stack *a)
+void	get_stack(int ac, char **av, stack *a, stack *b)
 {
 	int		i;
 	long	n;
@@ -44,8 +44,10 @@ void	get_stack(int ac, char **av, stack *a)
 	{
 		n = atoll(av[a->top]);
 		if (n > 2147483647 || n < -2147483648)
-			exit_error(a);
+			exit_error(a, b);
 		a->tab[i] = ft_atoi(av[ac - 1 - i]);
 	}
-	check_doubel(a);
+	check_doubel(a, b);
+	b->top = -1;
+	b->tab = malloc((a->top + 1) * sizeof(int));
 }

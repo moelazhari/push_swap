@@ -84,7 +84,7 @@ int	check_order(stack a)
 	}
 	return (i == a.top);
 }
-*/
+
 
 int	find_max(t_data data)
 {
@@ -138,17 +138,17 @@ void	big_sort(t_data *data)
 	while (data->lenb > 0)
 	{
 		sort_b(data);
-		/*if (data->stackb[0] < data->stackb[data->lenb - 1])
+		if (data->stackb[0] < data->stackb[data->lenb - 1])
 			rrb(data);
 		if (data->stackb[0] > data->stackb[1])
-			sb(data);*/
+			sb(data);
 		pa(data);
 		if (data->stacka[0] > data->stacka[1])
 			sa(data);
 	}
 }
 
-/*void	fill_stack(stack *s, int *tob, int top)
+void	fill_stack(stack *s, int *tob, int top)
 {
 	int i = 0;
 

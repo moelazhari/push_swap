@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/02/04 15:25:15 by mazhari          ###   ########.fr        #
+#    Updated: 2022/02/05 15:35:06 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,12 +26,14 @@ SRCS = main.c \
 		ft_atoll.c \
 		exit_error.c \
 		push_swap_utils.c \
-		#swap.c \
+		swap.c \
 		push_a.c \
 		push_b.c \
 		rotate.c \
 		reverse_rotate.c \
-		sort.c \
+		algo.c \
+		convert_index.c \
+		#sort.c \
 		big_sort.c \
 
 SRCS_BONUS = bonus/checker.c \

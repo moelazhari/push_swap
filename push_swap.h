@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 16:14:40 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/05 15:34:39 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct s_stack
 }				stack;
 
 void	check_digit(int ac, char **str);
-void	get_stack(int ac, char **av, stack *a);
-void	exit_error(stack *stack);
+void	get_stack(int ac, char **av, stack *a, stack *b);
+void	exit_error(stack *a, stack *b);
 long	ft_atoll(const char *str);
 int		check_is_sort(stack *stack);
 /*
@@ -34,16 +34,19 @@ void	sort(t_data *data);
 void	big_sort(t_data *data);
 void	min_sort(t_data *data);
 void	get_instructions(t_data *data);
-void	sa(t_data *data);
-void	sb(t_data *data);
-void	ss(t_data *data);
-void	pa(t_data *data);
-void	pb(t_data *data);
-void	ra(t_data *data);
-void	rb(t_data *data);
-void	rr(t_data *data);
-void	rra(t_data *data);
-void	rrb(t_data *data);
-void	rrr(t_data *data);
 */
+void	convert_index(stack *s);
+void	algo(stack *a, stack *b);
+void	sa(stack *a);
+void	sb(stack *b);
+void	ss(stack *a, stack *b);
+void	pa(stack *a, stack *b);
+void	pb(stack *a, stack *b);
+void	ra(stack *a);
+void	rb(stack *a);
+void	rr(stack *a, stack *b);
+void	rra(stack *a);
+void	rrb(stack *a);
+void	rrr(stack *a, stack *b);
+
 #endif
