@@ -6,14 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/05 19:03:39 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/06 17:29:56 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-static void	get_index(t_data *data)
+static void	get_index(stack *a, stack *b)
 {
 	int	i;
 	int	j;
@@ -21,26 +20,26 @@ static void	get_index(t_data *data)
 	int	*ptr;
 
 	i = 0;
-	ptr = malloc((data->lena) * sizeof(int));
+	ptr = malloc((a->top + 1) * sizeof(int));
 	if (!ptr)
-		exit_error(data);
-	while (i < data->lena)
+		exit_error(a, b);
+	while (i <= a->top)
 	{
 		j = 0;
 		pos = 0;
-		while (j < data->lena)
+		while (j <= a->top)
 		{
-			if (data->stacka[i] > data->stacka[j])
+			if (a->tab[i] > a->tab[j])
 				pos++;
 			j++;
 		}
-		ptr[i] = pos + 1;
+		ptr[i] = pos;
 		i++;
 	}
-	free(data->stacka);
-	data->stacka = ptr;
+	free(a->tab);
+	a->tab = ptr;
 }
-*/
+
 
 int	main(int ac, char **av)
 {
@@ -56,19 +55,11 @@ int	main(int ac, char **av)
 		free(a.tab);
 		exit(0);
 	}
-	//get_index(&data);
-	convert_index(&a);
+	get_index(&a, &b);
+	//convert_index(&a);
 	algo(&a, &b);
+
 	/*
-	int	i;
-
-
-	i = 0;
-	while (i <= a.top)
-	{
-		printf("%d\n", a.tab[a.top - i]);
-		i++;
-	}
 	sort(&data);
 	if (data.stacka)
 		free(data.stacka);

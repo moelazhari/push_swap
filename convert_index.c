@@ -16,7 +16,7 @@ int	find_max(int *tab, int top)
 	return (max);
 }
 
-int	find_min(int *tab, int top)
+int	ci_find_min(int *tab, int top)
 {
 	int	min;
 	int	i;
@@ -49,7 +49,7 @@ void	convert_index(stack *s)
 	i = 0;
 	while (i < s->top)
 	{
-		min = find_min(tmp, s->top);
+		min = ci_find_min(tmp, s->top);
 		s->tab[min] = i;
 		i++;
 	}
