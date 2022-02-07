@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:41:59 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/07 18:25:15 by mazhari          ###   ########.fr       */
+/*   Created: 2022/01/03 13:05:28 by mazhari           #+#    #+#             */
+/*   Updated: 2022/02/07 18:32:41 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	exit_error(stack *a, stack *b)
+void	pa(stack *b, stack *a)
 {
-	if (a->tab)
-		free(a->tab);
-	if (b->tab)
-		free(b->tab);
-	write(2, "Error\n", 6);
-	exit(1);
+	b->tab[(b->top) + 1] = a->tab[a->top];
+	a->top -= 1;
+	b->top += 1;
+	write(1, "pa\n", 3);
+}
+
+void	pb(stack *a, stack *b)
+{
+	b->tab[(b->top) + 1] = a->tab[a->top];
+	a->top -= 1;
+	b->top += 1;
+	write(1, "pb\n", 3);
 }

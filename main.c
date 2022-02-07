@@ -6,11 +6,33 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/06 17:29:56 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/07 18:55:06 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void check_digit(int ac, char **str)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (++i < ac)
+	{
+		if (str[i][0] == '\0')
+			write(1, "error\n", 6);
+		j = 0;
+		while (str[i][j])
+		{
+			if (str[i][j] == '-')
+				j++;
+			if (!ft_isdigit(str[i][j]))
+				write(1, "error\n", 6);
+			j++;	
+		}
+	}
+}
 
 static void	get_index(stack *a, stack *b)
 {
@@ -40,7 +62,6 @@ static void	get_index(stack *a, stack *b)
 	a->tab = ptr;
 }
 
-
 int	main(int ac, char **av)
 {
 	stack	a;
@@ -50,33 +71,17 @@ int	main(int ac, char **av)
 	{
 	check_digit(ac, av);
 	get_stack(ac, av, &a, &b);
-	if (check_is_sort(&a) || a.top == 0)
+	if (check_is_sort(a) || a.top == 0)
 	{
 		free(a.tab);
 		exit(0);
 	}
 	get_index(&a, &b);
-	//convert_index(&a);
 	algo(&a, &b);
-
-	/*
-	sort(&data);
-	if (data.stacka)
-		free(data.stacka);
-	if (data.stackb)
-		free(data.stackb);
-	*/
-	/*
-	int	i;
-
-
-	i = 0;
-	while (i <= a.top)
-	{
-		printf("%d\n", a.tab[a.top - i]);
-		i++;
-	}
-	*/
+	if (a.tab)
+		free(a.tab);
+	if (b.tab)
+		free(b.tab);
 	}
 	return (0);
 }

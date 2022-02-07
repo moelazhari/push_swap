@@ -6,7 +6,7 @@
 #    By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 17:46:49 by mazhari           #+#    #+#              #
-#    Updated: 2022/02/05 15:35:06 by mazhari          ###   ########.fr        #
+#    Updated: 2022/02/07 18:50:01 by mazhari          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,20 +21,16 @@ LIBFT_LIB = $(LIBFT_DIR)/libft.a
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c \
+SRCS =	main.c \
 		get_stack.c \
 		ft_atoll.c \
 		exit_error.c \
-		push_swap_utils.c \
+		algo_utils.c \
 		swap.c \
-		push_a.c \
-		push_b.c \
+		push.c \
 		rotate.c \
 		reverse_rotate.c \
 		algo.c \
-		convert_index.c \
-		#sort.c \
-		big_sort.c \
 
 SRCS_BONUS = bonus/checker.c \
 			bonus/push_swap_utils.c \
@@ -73,7 +69,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	$(RM) checker
+	#$(RM) checker
 	$(RM) $(LIBFT_LIB)
 
 re: fclean all
