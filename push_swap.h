@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/07 18:54:40 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 13:27:41 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define PUSH_SWAP_H
 
 # include "libft/libft.h"
-# include <stdio.h>
- 
+
 typedef struct s_stack
 {
 	int	top;
 	int	*tab;
 }				stack;
+
 
 void	get_stack(int ac, char **av, stack *a, stack *b);
 long	ft_atoll(const char *str);

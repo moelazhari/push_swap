@@ -5,7 +5,7 @@ int	check_is_sort(stack a)
 	int	i;
 
 	i = -1;
-	while (++i <= a.top)
+	while (++i < a.top)
 	{
 		if (a.tab[i] < a.tab[i + 1])
 			return (0);

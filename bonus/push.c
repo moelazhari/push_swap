@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_error.c                                       :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/03 10:41:59 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 13:35:23 by mazhari          ###   ########.fr       */
+/*   Created: 2022/01/03 13:05:28 by mazhari           #+#    #+#             */
+/*   Updated: 2022/02/08 16:45:36 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	exit_error(stack *a, stack *b)
+void	pa(stack *a, stack *b)
 {
-	if (a->tab)
-		free(a->tab);
-	if (b->tab)
-		free(b->tab);
-	write(2, "Error\n", 6);
-	exit(1);
+	if (b->top >= 0)
+	{
+		a->tab[(a->top) + 1] = b->tab[b->top];
+		b->top -= 1;
+		a->top += 1;
+	}
+}
+
+void	pb(stack *a, stack *b)
+{
+	if (a->top >= 0)
+	{
+		b->tab[(b->top) + 1] = a->tab[a->top];
+		a->top -= 1;
+		b->top += 1;
+	}
 }

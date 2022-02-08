@@ -6,63 +6,48 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:52 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 11:45:47 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:21:56 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-static void	data_init(int ac, t_data *data)
-{
-	int	i;
-
-	i = 0;
-	data->lena = ac - 1;
-	data->stacka = malloc(data->lena * sizeof(int));
-	if(!data->stacka)
-		exit_error(data);
-	data->lenb = 0;
-	data->stackb = NULL;
-}
-
-static void	fill_stack(char **av, t_data *data)
-{
-	int		i;
-	long	n;
-	
-	i = -1;
-	n = 0;
-	while (++i < data->lena)
-	{
-		n = atoll(av[i + 1]);
-		if (n > 2147483647 || n < -2147483648)
-			exit_error(data);
-		data->stacka[i] = ft_atoi(av[i + 1]);
-	}
-}
-
-static void	check_doubel(t_data *data)
+static void	check_doubel(stack *a, stack *b)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (i < data->lena)
+	while (i <= a->top)
 	{
 		j = i + 1;
-		while (j < data->lena)
+		while (j <= a->top)
 		{
-			if (data->stacka[i] == data->stacka[j])
-				exit_error(data);
+			if (a->tab[i] == a->tab[j])
+				exit_error(a, b);
 			j++;
 		}
 		i++;
 	}
 }
 
-void	get_stack(int ac, char **av, t_data *data)
+void	get_stack(int ac, char **av, stack *a, stack *b)
 {
-	data_init(ac, data);
-	fill_stack(av, data);
-	check_doubel(data);
+	int		i;
+	long	n;
+	
+	i = -1;
+	n = 0;
+	a->top = ac - 2;
+	a->tab = malloc((a->top + 1) * sizeof(int));
+	while (++i <= a->top)
+	{
+		n = atoll(av[a->top]);
+		if (n > 2147483647 || n < -2147483648)
+			exit_error(a, b);
+		a->tab[i] = ft_atoi(av[ac - 1 - i]);
+	}
+	check_doubel(a, b);
+	b->top = -1;
+	b->tab = malloc((a->top + 1) * sizeof(int));
 }

@@ -6,38 +6,49 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:42:22 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/04 11:53:47 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:43:01 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	sa(t_data *data)
+
+void	sa(stack *a)
 {
 	int	swap;
 
-	if (data->lena > 1)
+	if (a->top >= 1)
 	{
-		swap = data->stacka[0];
-		data->stacka[0] = data->stacka[1];
-		data->stacka[1] = swap;
+		swap = a->tab[a->top];
+		a->tab[a->top] = a->tab[a->top - 1];
+		a->tab[a->top - 1] = swap;
 	}
 }
 
-void	sb(t_data *data)
+void	sb(stack *b)
 {
 	int	swap;
 
-	if (data->lenb > 1)
+	if (b->top >= 1)
 	{
-		swap = data->stackb[0];
-		data->stackb[0] = data->stackb[1];
-		data->stackb[1] = swap;
+		swap = b->tab[b->top];
+		b->tab[b->top] = b->tab[b->top - 1];
+		b->tab[b->top - 1] = swap;
 	}
 }
 
-void	ss(t_data *data)
+void	ss(stack *a, stack *b)
 {
-	sa(data);
-	sb(data);
+	int	swap;
+	
+	if (a->top >= 1 && a->top >= 1)
+	{
+		swap = a->tab[a->top];
+		a->tab[a->top] = a->tab[a->top - 1];
+		a->tab[a->top - 1] = swap;
+		swap = b->tab[b->top];
+		b->tab[b->top] = b->tab[b->top - 1];
+		b->tab[b->top - 1] = swap;
+	}
 }
+

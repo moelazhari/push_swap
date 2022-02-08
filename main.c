@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/07 18:55:06 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:12:29 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void check_digit(int ac, char **str)
+static void check_digit(int ac, char **str,	stack *a, stack *b)
 {
 	int	i;
 	int j;
@@ -21,14 +21,14 @@ static void check_digit(int ac, char **str)
 	while (++i < ac)
 	{
 		if (str[i][0] == '\0')
-			write(1, "error\n", 6);
+			exit_error(a, b);
 		j = 0;
 		while (str[i][j])
 		{
 			if (str[i][j] == '-')
 				j++;
 			if (!ft_isdigit(str[i][j]))
-				write(1, "error\n", 6);
+				exit_error(a, b);
 			j++;	
 		}
 	}
@@ -69,19 +69,19 @@ int	main(int ac, char **av)
 
 	if (ac > 2)
 	{
-	check_digit(ac, av);
-	get_stack(ac, av, &a, &b);
-	if (check_is_sort(a) || a.top == 0)
-	{
-		free(a.tab);
-		exit(0);
-	}
-	get_index(&a, &b);
-	algo(&a, &b);
-	if (a.tab)
-		free(a.tab);
-	if (b.tab)
-		free(b.tab);
+		check_digit(ac, av, &a, &b);
+		get_stack(ac, av, &a, &b);
+		if (check_is_sort(a) || a.top == 0)
+		{
+			free(a.tab);
+			return (0);
+		}
+		get_index(&a, &b);
+		algo(&a, &b);
+		if (a.tab)
+			free(a.tab);
+		if (b.tab)
+			free(b.tab);
 	}
 	return (0);
 }

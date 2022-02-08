@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 15:02:19 by yel-khad          #+#    #+#             */
-/*   Updated: 2022/02/07 18:54:54 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 15:57:06 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@ void	min_sort(stack *a)
 {
 	int	big;
 	
+	if (a->top == 1)
+		if (!check_is_sort(*a))
+			sa(a);
 	if (!check_is_sort(*a))
 	{
 	big = find_max(a->tab, a->top);

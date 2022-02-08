@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:42:22 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/05 15:07:32 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/08 16:46:32 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,14 @@ void	ss(stack *a, stack *b)
 {
 	int	swap;
 	
-	swap = a->tab[a->top];
-	a->tab[a->top] = a->tab[a->top - 1];
-	a->tab[a->top - 1] = swap;
-	swap = b->tab[b->top];
-	b->tab[b->top] = b->tab[b->top - 1];
-	b->tab[b->top - 1] = swap;
-	write (1, "ss\n", 3);
+	if (a->top >= 1 && b->top >= 1)
+	{
+		swap = a->tab[a->top];
+		a->tab[a->top] = a->tab[a->top - 1];
+		a->tab[a->top - 1] = swap;
+		swap = b->tab[b->top];
+		b->tab[b->top] = b->tab[b->top - 1];
+		b->tab[b->top - 1] = swap;
+		write (1, "ss\n", 3);
+	}
 }

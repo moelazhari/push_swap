@@ -21,7 +21,7 @@ static void	check_doubel(stack *a, stack *b)
 	while (i <= a->top)
 	{
 		j = i + 1;
-		while (j < a->top)
+		while (j <= a->top)
 		{
 			if (a->tab[i] == a->tab[j])
 				exit_error(a, b);
