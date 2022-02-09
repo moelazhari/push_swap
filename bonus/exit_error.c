@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:41:59 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 13:35:23 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:15:55 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	exit_error(stack *a, stack *b)
+void	exit_error(t_stack *a, t_stack *b)
 {
 	if (a->tab)
 		free(a->tab);

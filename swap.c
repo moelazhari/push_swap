@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 10:42:22 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 16:46:32 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:09:24 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(stack *a)
+void	sa(t_stack *a)
 {
 	int	swap;
 
@@ -25,7 +25,7 @@ void	sa(stack *a)
 	}
 }
 
-void	sb(stack *b)
+void	sb(t_stack *b)
 {
 	int	swap;
 
@@ -38,10 +38,10 @@ void	sb(stack *b)
 	}
 }
 
-void	ss(stack *a, stack *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	int	swap;
-	
+
 	if (a->top >= 1 && b->top >= 1)
 	{
 		swap = a->tab[a->top];

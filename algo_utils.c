@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/09 13:55:28 by mazhari           #+#    #+#             */
+/*   Updated: 2022/02/09 14:00:38 by mazhari          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-int	check_is_sort(stack a)
+int	check_is_sort(t_stack a)
 {
 	int	i;
 
@@ -13,7 +25,7 @@ int	check_is_sort(stack a)
 	return (1);
 }
 
-int	find_max(int *tab, int top)
+int	max(int *tab, int top)
 {
 	int	i;
 	int	max;
@@ -29,7 +41,7 @@ int	find_max(int *tab, int top)
 	return (max);
 }
 
-int	find_min(int *tab, int top)
+int	min(int *tab, int top)
 {
 	int	min;
 	int	i;

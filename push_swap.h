@@ -6,7 +6,7 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:49:02 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 13:27:41 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:02:06 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,29 @@
 
 # include "libft/libft.h"
 
-typedef struct s_stack
+typedef struct t_stack
 {
 	int	top;
 	int	*tab;
-}				stack;
+}				t_stack;
 
-
-void	get_stack(int ac, char **av, stack *a, stack *b);
+void	get_stack(int ac, char **av, t_stack *a, t_stack *b);
 long	ft_atoll(const char *str);
-int		check_is_sort(stack a);
-int		find_min(int *tab, int top);
-int		find_max(int *tab, int top);
-void	algo(stack *a, stack *b);
-void	exit_error(stack *a, stack *b);
-void	sa(stack *a);
-void	sb(stack *b);
-void	ss(stack *a, stack *b);
-void	pa(stack *a, stack *b);
-void	pb(stack *a, stack *b);
-void	ra(stack *a);
-void	rb(stack *a);
-void	rr(stack *a, stack *b);
-void	rra(stack *a);
-void	rrb(stack *a);
-void	rrr(stack *a, stack *b);
+int		check_is_sort(t_stack a);
+int		min(int *tab, int top);
+int		max(int *tab, int top);
+void	algo(t_stack *a, t_stack *b);
+void	exit_error(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *a);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *a);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:05:28 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 16:48:43 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:02:29 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(stack *a, stack *b)
+void	pa(t_stack *a, t_stack *b)
 {
 	if (b->top >= 0)
 	{
@@ -23,7 +23,7 @@ void	pa(stack *a, stack *b)
 	}
 }
 
-void	pb(stack *a, stack *b)
+void	pb(t_stack *a, t_stack *b)
 {
 	if (a->top >= 0)
 	{

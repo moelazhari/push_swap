@@ -6,35 +6,39 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 15:48:48 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 16:12:29 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:02:10 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void check_digit(int ac, char **str,	stack *a, stack *b)
+static void	check_digit(int ac, char **av,	t_stack *a, t_stack *b)
 {
-	int	i;
-	int j;
+	int		i;
+	int		j;
+	long	n;
 
 	i = 0;
 	while (++i < ac)
 	{
-		if (str[i][0] == '\0')
+		if (av[i][0] == '\0')
+			exit_error(a, b);
+		n = atoll(av[i]);
+		if (n > 2147483647 || n < -2147483648)
 			exit_error(a, b);
 		j = 0;
-		while (str[i][j])
+		while (av[i][j])
 		{
-			if (str[i][j] == '-')
+			if (av[i][j] == '-')
 				j++;
-			if (!ft_isdigit(str[i][j]))
+			if (!ft_isdigit(av[i][j]))
 				exit_error(a, b);
-			j++;	
+			j++;
 		}
 	}
 }
 
-static void	get_index(stack *a, stack *b)
+static void	get_index(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -64,10 +68,10 @@ static void	get_index(stack *a, stack *b)
 
 int	main(int ac, char **av)
 {
-	stack	a;
-	stack	b;
+	t_stack	a;
+	t_stack	b;
 
-	if (ac > 2)
+	if (ac > 1)
 	{
 		check_digit(ac, av, &a, &b);
 		get_stack(ac, av, &a, &b);

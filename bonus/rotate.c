@@ -6,13 +6,13 @@
 /*   By: mazhari <mazhari@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/03 13:56:01 by mazhari           #+#    #+#             */
-/*   Updated: 2022/02/08 16:41:42 by mazhari          ###   ########.fr       */
+/*   Updated: 2022/02/09 14:17:59 by mazhari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ra(stack *a)
+void	ra(t_stack *a)
 {
 	int	tmp;
 	int	i;
@@ -27,7 +27,7 @@ void	ra(stack *a)
 	}
 }
 
-void	rb(stack *b)
+void	rb(t_stack *b)
 {
 	int	tmp;
 	int	i;
@@ -42,7 +42,7 @@ void	rb(stack *b)
 	}
 }
 
-void	rr(stack *a, stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	int	tmp;
 	int	i;
